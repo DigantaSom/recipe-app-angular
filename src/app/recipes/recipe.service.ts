@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { Recipe } from './recipe.model';
 
@@ -6,6 +6,8 @@ import { Recipe } from './recipe.model';
   providedIn: 'root',
 })
 export class RecipeService {
+  public recipeSelected = new EventEmitter<Recipe>();
+
   private recipes: Recipe[] = [
     new Recipe(
       'Veggie Grilled Cheese Tomato Soup',
@@ -22,7 +24,7 @@ export class RecipeService {
   constructor() {}
 
   getRecipes() {
-    // with slice(), we are returning a new array which is an exact copy of the above
+    // with slice(), we are returning a new array which is an exact copy of the above, so that we can't access the original recipes array stored in this service
     return this.recipes.slice();
   }
 }
