@@ -23,7 +23,7 @@ export class RecipeService {
 
   constructor() {}
 
-  getRecipes() {
+  getRecipes(): Recipe[] {
     // with slice(), we are returning a new array which is an exact copy of the above, so that we can't access the original recipes array stored in this service
     return this.recipes.slice();
   }
