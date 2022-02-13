@@ -12,6 +12,8 @@ export class DropdownDirective {
   @HostBinding('class.open')
   isOpen: boolean = false;
 
+  constructor(private elementRef: ElementRef) {}
+
   // if we want to close dropdown by clicking anywhere in the window
   @HostListener('document:click', ['$event'])
   toggleOpen(event: Event): void {
@@ -25,6 +27,4 @@ export class DropdownDirective {
   // toggleOpen(): void {
   //   this.isOpen = !this.isOpen;
   // }
-
-  constructor(private elementRef: ElementRef) {}
 }
