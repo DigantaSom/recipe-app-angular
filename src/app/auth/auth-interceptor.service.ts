@@ -19,7 +19,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    // We wanna take only one value from this observable, then immediately unsubscribe form it.
+    // take(1): We wanna take only one value from this observable, then immediately unsubscribe form it.
     // exhaustMap() waits for the first (user) observable to get completed, then it gives us that user.
     // Then the higher-order observable (user) will be replaced by the lower-order observable (http.get())
     // This modification is basically done because we had to return two observables (not possible).

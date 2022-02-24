@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable, catchError, throwError, tap, BehaviorSubject } from 'rxjs';
 
 import { User } from './user.model';
@@ -23,7 +24,7 @@ export class AuthService {
 
   private API_KEY: string = 'abcd';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   signUp(email: string, password: string): Observable<AuthResponseData> {
     return this.http
@@ -69,6 +70,11 @@ export class AuthService {
           );
         })
       );
+  }
+
+  logout(): void {
+    this.user.next(null);
+    this.router.navigate(['/auth']);
   }
 
   private handleAuthentication(
