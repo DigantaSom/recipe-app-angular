@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, Subject, catchError, throwError, tap } from 'rxjs';
+import { Observable, catchError, throwError, tap, BehaviorSubject } from 'rxjs';
 
 import { User } from './user.model';
 
@@ -17,7 +17,10 @@ export interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  user: Subject<User> = new Subject<User>();
+  // BehaviorSubject is used in place of Subject so that we can get access to the currently logged in user, even if we only subscribe after that user has been emitted.
+  // This helps us get the currently logged in user, not only immediately after logging in, but also anytime after logging in, i.e., fetching or saving recipes (in this case).
+  user = new BehaviorSubject<User>(null);
+
   private API_KEY: string = 'abcd';
 
   constructor(private http: HttpClient) {}
