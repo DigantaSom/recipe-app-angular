@@ -18,7 +18,7 @@ export interface AuthResponseData {
 })
 export class AuthService {
   user: Subject<User> = new Subject<User>();
-  private API_KEY: string = 'AIzaSyBwbFzSOr1ciyrgbO1bEfZk6r-oRWRmO9o';
+  private API_KEY: string = 'abcd';
 
   constructor(private http: HttpClient) {}
 
