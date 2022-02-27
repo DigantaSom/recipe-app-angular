@@ -4,18 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { RecipesModule } from './recipes/recipes.module';
+
 import { DropdownDirective } from './shared/dropdown.directive';
 import { PlaceholderDirective } from './shared/placeholder.directive';
+
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { AuthComponent } from './auth/auth.component';
@@ -26,12 +23,6 @@ import { AlertComponent } from './shared/alert/alert.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeStartComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
-    RecipeItemComponent,
-    RecipeEditComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     AuthComponent,
@@ -46,6 +37,7 @@ import { AlertComponent } from './shared/alert/alert.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    RecipesModule,
   ],
   providers: [
     {
