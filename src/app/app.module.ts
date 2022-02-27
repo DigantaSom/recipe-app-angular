@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { PlaceholderDirective } from './shared/placeholder.directive';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 import { AppComponent } from './app.component';
@@ -33,10 +34,11 @@ import { AlertComponent } from './shared/alert/alert.component';
     RecipeEditComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective,
     AuthComponent,
     LoadingSpinnerComponent,
     AlertComponent,
+    DropdownDirective,
+    PlaceholderDirective,
   ],
   imports: [
     BrowserModule,
