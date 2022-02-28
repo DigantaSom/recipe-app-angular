@@ -11,7 +11,8 @@ import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 
 const recipeRoutes: Routes = [
   {
-    path: 'recipes',
+    // path: 'recipes',
+    path: '', // to lazy load RecipesModule
     component: RecipesComponent,
     canActivate: [AuthGuardService],
     children: [

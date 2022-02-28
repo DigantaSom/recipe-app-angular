@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
@@ -18,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RecipesModule,
+    // RecipesModule, // removed from here as we are lazy loading RecipesModule from AppRoutingModule
     ShoppingListModule,
     AuthModule,
     SharedModule,
