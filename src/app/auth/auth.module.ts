@@ -7,7 +7,13 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AuthComponent } from './auth.component';
 
-const authRoutes: Routes = [{ path: 'auth', component: AuthComponent }];
+const authRoutes: Routes = [
+  {
+    // path: 'auth',
+    path: '', // to lazy load AuthModule
+    component: AuthComponent,
+  },
+];
 
 @NgModule({
   declarations: [AuthComponent],
