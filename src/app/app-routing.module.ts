@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -25,7 +25,13 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      // still lazy loading, but Angular will preload the bundles as soon as possible, to make sure that the subsequent navigation is sitll faster, while keeping the initial bundle size smaller.
+      { preloadingStrategy: PreloadAllModules }
+    ),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
